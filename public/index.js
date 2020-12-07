@@ -9,7 +9,6 @@ ele.menu.style.borderColor = `hsl(${hue},100%,50%)`;
 ele.menu.style.backgroundColor = `hsla(${hue},100%,50%,50%)`;
 ele.color_slider.value = hue;
 ele.color_slider.addEventListener('input',ev=>{
-	console.log(hue)
 	hue = ev.target.value;
 	ele.menu.style.borderColor = `hsl(${hue},100%,50%)`;
 	ele.menu.style.backgroundColor = `hsla(${hue},100%,50%,50%)`;
