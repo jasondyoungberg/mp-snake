@@ -1,0 +1,75 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	overflow: hidden;
+	margin: 0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+div.menu-wrapper {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.menu {
+	display: grid;
+	grid-template-areas: "title title" "name start" "color color";
+	background-color: #fff9;
+	border: 10px solid;
+	padding: 10px;
+	box-shadow: 4px 6px 6px #000c;
+	border-radius: 10px;
+}
+
+h1.title {
+	grid-area: title;
+	margin: 0;
+	text-align: center;
+	text-shadow: 2px 3px #0003;
+}
+
+input#name {
+	grid-area: name;
+	font-size: 48px;
+	padding: 0 0 0 2px;
+	height: 60px;
+	margin: 0;
+	border: none;
+	outline: none;
+	box-shadow: 2px 3px 3px #000c;
+}
+
+button#start {
+	grid-area: start;
+	height: 60px;
+	width: 50px;
+	border: none;
+	outline: none;
+	padding: 0;
+	background-color: #fff;
+	box-shadow: 2px 3px 3px #000c;
+	cursor: pointer;
+}
+
+input#color {
+	grid-area: color;
+	appearance: none;
+	background: linear-gradient(to right,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00);
+	height: 25px;
+	margin: 10px 0 0;
+	box-shadow: 2px 3px 3px #000c;
+	outline: none;
+}
+
+input#color::-webkit-slider-thumb {
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	background: transparent;
+	border: 5px solid #000;
+	cursor: pointer;
+}
