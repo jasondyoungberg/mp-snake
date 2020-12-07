@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Multiplayer Snake</title>
+
+		<link href="style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="menu-wrapper">
+			<div class="menu">
+				<h1 class="title">MULTIPLAYER SNAKE</h1>
+				<input id="name" type="text" size="16" pattern="\w{4,16}" autofocus/>
+				<button id="start">
+					<svg id="start" width="50" height="60">
+						<path d="M10,10L40,30L10,50">
+					</svg>
+				</button>
+				<input id="color" type="range" min="0" max="360"/>
+			</div>
+		</div>
+		<div class="main"></div>
+		<div class="minimap"></div>
+		<div class="leaderboard"></div>
+		<script src="index.js"></script>
+	</body>
+</html>
