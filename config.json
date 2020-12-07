@@ -1,0 +1,19 @@
+{
+	"port":80,
+	"anticheat":false,
+	"log":{
+		"console":{
+			"http":true,
+			"ws":true,
+			"hack":true,
+			"err":true
+		},
+		"file":{
+			"http":false,
+			"ws":false,
+			"hack":true,
+			"err":true,
+			"path":"log.txt"
+		}
+	}
+}
