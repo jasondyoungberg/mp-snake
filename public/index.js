@@ -1,6 +1,7 @@
 var ele = {//All elements shorthand
 	menu:document.getElementsByClassName('menu')[0],
 	color_slider:document.getElementById('color'),
+	root:document.querySelector(':root'),
 	game:document.getElementById('game'),
 	minimap:document.getElementById('minimap')
 }
@@ -11,14 +12,19 @@ if(!hue){
 	hue=Math.floor(Math.random()*360);
 	localStorage.hue = hue;
 }
-ele.menu.style.borderColor = `hsl(${hue},100%,50%)`;
-ele.menu.style.backgroundColor = `hsla(${hue},100%,50%,50%)`;
+
+ele.root.style.setProperty('--hue-dark',`hsl(${hue},100%,20%)`);
+ele.root.style.setProperty('--hue-normal',`hsl(${hue},100%,50%)`);
+ele.root.style.setProperty('--hue-bright',`hsl(${hue},100%,80%)`);
+
 ele.color_slider.value = hue;
 ele.color_slider.addEventListener('input',ev=>{
 	hue = ev.target.value;
 	localStorage.hue = hue;
-	ele.menu.style.borderColor = `hsl(${hue},100%,50%)`;
-	ele.menu.style.backgroundColor = `hsla(${hue},100%,50%,50%)`;
+
+	ele.root.style.setProperty('--hue-dark',`hsl(${hue},100%,30%)`);
+	ele.root.style.setProperty('--hue-normal',`hsl(${hue},100%,50%)`);
+	ele.root.style.setProperty('--hue-bright',`hsl(${hue},100%,80%)`);
 })
 
 //Setup statistics monitoring

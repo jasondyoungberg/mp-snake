@@ -6,6 +6,12 @@ body {
 	font-weight: bold;
 }
 
+:root {
+	--hue-bright: hsl(0,0,80%);
+	--hue-normal: hsl(0,0,50%);
+	--hue-dark: hsl(0,0,20%);
+}
+
 div.menu-wrapper {
 	width: 100vw;
 	height: 100vh;
@@ -17,46 +23,59 @@ div.menu-wrapper {
 
 div.menu {
 	display: grid;
-	grid-template-areas: "title title" "name start" "color color";
-	background-color: #fff9;
-	border: 10px solid;
+	background-color: var(--hue-bright);
+	border: 10px solid var(--hue-normal);
 	padding: 10px;
 	box-shadow: 4px 6px 6px #000c;
 	border-radius: 10px;
 }
 
 h1.title {
-	grid-area: title;
 	margin: 0;
 	text-align: center;
-	text-shadow: 2px 3px #0003;
+	text-shadow: 2px 3px #000;
+	color: var(--hue-dark);
+}
+
+div.textbox-wrapper {
+	display: grid;
+	grid-template-rows: 60px;
+	grid-template-columns: auto 50px;
+	box-shadow: 2px 3px 3px #000c;
 }
 
 input#name {
-	grid-area: name;
 	font-size: 48px;
 	padding: 0 0 0 2px;
 	height: 60px;
 	margin: 0;
+	background-color: fff;
 	border: none;
 	outline: none;
-	box-shadow: 2px 3px 3px #000c;
+	color: var(--hue-dark);
+	text-shadow: 1px 2px #000;
 }
 
 button#start {
-	grid-area: start;
 	height: 60px;
 	width: 50px;
 	border: none;
 	outline: none;
 	padding: 0;
-	background-color: #fff;
-	box-shadow: 2px 3px 3px #000c;
+	background-color: transparent;
 	cursor: pointer;
 }
 
+button#start svg {
+	fill: #000f;
+	transition: 1s;
+}
+
+button#start:hover svg{
+	fill: var(--hue-normal);
+}
+
 input#color {
-	grid-area: color;
 	appearance: none;
 	background: linear-gradient(to right,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00);
 	height: 25px;
@@ -69,7 +88,7 @@ input#color::-webkit-slider-thumb {
 	appearance: none;
 	width: 25px;
 	height: 25px;
-	background: transparent;
-	border: 5px solid #000;
+	background: var(--hue-normal);
+	border: 5px solid var(--hue-dark);
 	cursor: pointer;
 }
