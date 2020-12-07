@@ -6,6 +6,8 @@
 		<title>Multiplayer Snake</title>
 
 		<link href="style.css" rel="stylesheet" type="text/css">
+		<script src="stats.js"></script>
+		<script src="info.js"></script>
 		<script src="websocket.js"></script>
 		<script src="canvas.js"></script>
 		<script src="snake.js"></script>
@@ -24,8 +26,12 @@
 				<input id="color" type="range" min="0" max="360"/>
 			</div>
 		</div>
-		<div class="main"></div>
-		<div class="minimap"></div>
+		<div class="main">
+			<canvas id="game"></canvas>
+		</div>
+		<div class="minimap">
+			<canvas id="minimap"></canvas>
+		</div>
 		<div class="leaderboard"></div>
 		<script src="index.js"></script>
 	</body>
