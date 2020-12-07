@@ -6,12 +6,17 @@ var ele = {//All elements shorthand
 }
 
 //Setup hue slider
-var hue = Math.floor(Math.random()*360);
+var hue = localStorage.hue;
+if(!hue){
+	hue=Math.floor(Math.random()*360);
+	localStorage.hue = hue;
+}
 ele.menu.style.borderColor = `hsl(${hue},100%,50%)`;
 ele.menu.style.backgroundColor = `hsla(${hue},100%,50%,50%)`;
 ele.color_slider.value = hue;
 ele.color_slider.addEventListener('input',ev=>{
 	hue = ev.target.value;
+	localStorage.hue = hue;
 	ele.menu.style.borderColor = `hsl(${hue},100%,50%)`;
 	ele.menu.style.backgroundColor = `hsla(${hue},100%,50%,50%)`;
 })
