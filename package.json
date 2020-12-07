@@ -1,0 +1,28 @@
+{
+  "name": "mp-snake",
+  "version": "1.0.0",
+  "description": "multiplayer version of snake",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasondyoungberg/mp-snake.git"
+  },
+  "keywords": [
+    "multiplayer",
+    "snake"
+  ],
+  "author": "Jason Youngberg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasondyoungberg/mp-snake/issues"
+  },
+  "homepage": "https://github.com/jasondyoungberg/mp-snake#readme",
+  "dependencies": {
+    "dateformat": "^4.3.1",
+    "express": "^4.17.1",
+    "ws": "^7.4.1"
+  }
+}
