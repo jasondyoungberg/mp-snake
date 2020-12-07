@@ -9,7 +9,13 @@ const config = JSON.parse(fs.readFileSync('config.json'));
 const app = express();
 app.use((req,res,next)=>{//log request
 	log(`${req.url}`,'http');
-	next();
+	if(req.url=='/info.js'){
+		res.send(`const info = {\n\
+	width:${config.map.width},\n\
+	height:${config.map.height},\n\
+	loop:${config.map.loop}\n\
+};`);
+	}else{next();}
 },express.static('public'));
 app.enable('etag');//enable caching
 const server = http.createServer(app);
