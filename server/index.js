@@ -17,7 +17,9 @@ app.use((req,res,next)=>{//log request
 };`);
 	}else{next();}
 },express.static('public'));
-app.use(function(req, res, next){
+
+//Redirect on 404
+app.use(function(req,res,next){
 	res.redirect('/')
 });
 app.enable('etag');//enable caching
