@@ -17,6 +17,9 @@ app.use((req,res,next)=>{//log request
 };`);
 	}else{next();}
 },express.static('public'));
+app.use(function(req, res, next){
+	res.redirect('/')
+});
 app.enable('etag');//enable caching
 const server = http.createServer(app);
 
