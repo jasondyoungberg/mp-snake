@@ -1,10 +1,15 @@
 var ele = {//All elements shorthand
 	menu:document.getElementsByClassName('menu')[0],
+	menu_wrapper:document.getElementsByClassName('menu-wrapper')[0],
 	color_slider:document.getElementById('color'),
 	root:document.querySelector(':root'),
 	game:document.getElementById('game'),
 	minimap:document.getElementById('minimap')
 }
+
+//More shorthand
+var width = window.innerWidth;
+var height = window.innerHeight;
 
 //Setup hue slider
 var hue = localStorage.hue;
@@ -25,7 +30,7 @@ ele.color_slider.addEventListener('input',ev=>{
 	ele.root.style.setProperty('--hue-dark',`hsl(${hue},100%,30%)`);
 	ele.root.style.setProperty('--hue-normal',`hsl(${hue},100%,50%)`);
 	ele.root.style.setProperty('--hue-bright',`hsl(${hue},100%,80%)`);
-})
+});
 
 //Setup statistics monitoring
 stats = new Stats();

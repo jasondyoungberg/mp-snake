@@ -19,6 +19,22 @@ div.menu-wrapper {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background: url('favicon.ico');
+	background-size: 100px 100px;
+	background-position: center;
+	transition: background-size 1s;
+
+}
+
+div.menu-wrapper::before { 
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	content: '';
+	
+	background:
+	linear-gradient(to bottom, #ffff 0%, #ffff 2%, #fff3 10%, #fff3 90%, #ffff 98%, #ffff 100%),
+	linear-gradient(to right,  #ffff 0%, #ffff 2%, #fff3 10%, #fff3 90%, #ffff 98%, #ffff 100%);
 }
 
 div.menu {
@@ -28,6 +44,7 @@ div.menu {
 	padding: 10px;
 	box-shadow: 4px 6px 6px #000c;
 	border-radius: 10px;
+	z-index:1;
 }
 
 h1.title {
@@ -66,29 +83,38 @@ button#start {
 	cursor: pointer;
 }
 
-button#start svg {
-	fill: #000f;
-	transition: 1s;
+button#start path.main {
+	fill: #000;
+	transition: 0.5s;
 }
 
-button#start:hover svg{
-	fill: var(--hue-normal);
+button#start:hover path.main{
+	fill: #fff;
+}
+
+button#start path.outline {
+	fill: #fff;
+	transition: 0.5s;
+}
+
+button#start:hover path.outline{
+	fill: var(--hue-dark);
 }
 
 input#color {
 	appearance: none;
 	background: linear-gradient(to right,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00);
-	height: 25px;
+	height: 40px;
 	margin: 10px 0 0;
+	padding: 0 5px;
 	box-shadow: 2px 3px 3px #000c;
 	outline: none;
 }
 
 input#color::-webkit-slider-thumb {
 	appearance: none;
-	width: 25px;
-	height: 25px;
-	background: var(--hue-normal);
-	border: 5px solid var(--hue-dark);
+	width: 30px;
+	height: 30px;
+	background: var(--hue-bright);
 	cursor: pointer;
 }
