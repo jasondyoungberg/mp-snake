@@ -5,7 +5,7 @@ var ele = {//All elements shorthand
 	root:document.querySelector(':root'),
 	game:document.getElementById('game'),
 	minimap:document.getElementById('minimap')
-}
+};
 
 //More shorthand
 var width = window.innerWidth;
@@ -41,15 +41,17 @@ document.body.appendChild(stats.domElement);
 var canvas = {
 	game:new Canvas(ele.game),
 	minimap:new Canvas(ele.minimap)
-}
+};
 
-var running = false
+var running = false;
 
 function loop(){//Main game loop
 	stats.begin();
 	canvas.game.clear();
 	canvas.minimap.clear();
-	if(running){}
+	if(running){
+		//TODO: game loop
+	}
 	stats.end();
 	requestAnimationFrame(loop);
 }requestAnimationFrame(loop);
