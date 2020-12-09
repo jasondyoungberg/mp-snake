@@ -1,7 +1,7 @@
 const grid_size = 10;
 const snake_size = 8;
 
-class GameCanvas {
+class MinimapCanvas {
 	constructor(ele){
 		this.ele = ele;
 		this.ctx = ele.getContext("2d")
