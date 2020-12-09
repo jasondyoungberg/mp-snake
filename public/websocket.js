@@ -3,7 +3,7 @@ var ws = {
 	send:msg=>{
 		ws.socket.send(JSON.stringify(msg));
 	},
-	read:(callback)=>{
+	read:(callback=console.log)=>{
 		while(ws.queue.length>0){
 			callback(ws.queue.shift());
 		}
