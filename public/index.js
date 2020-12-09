@@ -2,6 +2,8 @@ var ele = {//All elements shorthand
 	menu:document.getElementsByClassName('menu')[0],
 	menu_wrapper:document.getElementsByClassName('menu-wrapper')[0],
 	color_slider:document.getElementById('color'),
+	name_textbox:document.getElementById('name'),
+	start_btn:document.getElementById('start'),
 	root:document.querySelector(':root'),
 	game:document.getElementById('game'),
 	minimap:document.getElementById('minimap')
@@ -57,9 +59,39 @@ var canvas = {
 	minimap:new Canvas(ele.minimap)
 };
 
+//Listen for events that start the game
 var running = false;
+ele.start_btn.addEventListener('click',start);
+document.addEventListener('keypress',e=>{if(e.key=='Enter')start();});
 
-function loop(){//Main game loop
+//Startup the game
+function start(){
+	if(/^([^\W_]| ){4,16}$/.test(ele.name_textbox.value)){
+		running = true;
+		ele.menu_wrapper.style.display = 'none';
+		ws.send({
+			type:'join',
+			username:username,
+			hue:hue,
+			token:make_token()
+		});
+	}else{
+		alert('Username must be 4-16 characters')
+	}
+}
+
+//Generate token
+function make_token(){
+	var result = '';
+	var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
+	for(var i=0;i<32;i++){
+		result += characters.charAt(Math.floor(64*Math.random()));
+	}
+	return result;
+};
+
+//Main game loop
+function loop(){
 	stats.begin();
 	canvas.game.clear();
 	canvas.minimap.clear();
