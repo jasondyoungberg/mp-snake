@@ -1,6 +1,3 @@
-const grid_size = 10;
-const snake_size = 8;
-
 class MinimapCanvas {
 	constructor(ele){
 		this.ele = ele;

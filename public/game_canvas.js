@@ -1,6 +1,3 @@
-const grid_size = 10;
-const snake_size = 8;
-
 class GameCanvas {
 	constructor(ele){
 		this.ele = ele;
