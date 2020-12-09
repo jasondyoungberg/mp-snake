@@ -5,7 +5,7 @@ var ws = {
 	},
 	read:(callback)=>{
 		while(ws.queue.length>0){
-			callback(ws.queue.pop());
+			callback(ws.queue.shift());
 		}
 	},
 	queue:[]
