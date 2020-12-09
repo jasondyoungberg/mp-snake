@@ -32,6 +32,20 @@ ele.color_slider.addEventListener('input',ev=>{
 	ele.root.style.setProperty('--hue-bright',`hsl(${hue},100%,80%)`);
 });
 
+//Setup username input
+var username = localStorage.username;
+if(!username){
+	username='';
+	localStorage.username = username;
+}
+ele.name_textbox.value = username;
+
+ele.name_textbox.addEventListener('input',e=>{
+	ele.name_textbox.value=ele.name_textbox.value.replace(/([^\w ]|_)/g,'');
+	username = ele.name_textbox.value;
+	localStorage.username = username;
+});
+
 //Setup statistics monitoring
 stats = new Stats();
 stats.addPanel(new Stats.Panel('','#0000','#0000'));
