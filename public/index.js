@@ -44,8 +44,9 @@ ele.name_textbox.value = username;
 
 ele.name_textbox.addEventListener('input',e=>{
 	ele.name_textbox.value=ele.name_textbox.value.replace(/([^\w ]|_)/g,'');
+	ele.name_textbox.value=ele.name_textbox.value.replace(/(?<=^.{16}).*/g,'');
 	username = ele.name_textbox.value;
-	localStorage.username = username;
+	localStorage.username = username.replace(/ +$/);
 });
 
 //Setup statistics monitoring
@@ -66,7 +67,7 @@ document.addEventListener('keypress',e=>{if(e.key=='Enter')start();});
 
 //Startup the game
 function start(){
-	if(/^([^\W_]| ){4,16}$/.test(ele.name_textbox.value)){
+	if(/^([^\W_]| ){3,15}[^\W_]$/.test(ele.name_textbox.value)){
 		running = true;
 		ele.menu_wrapper.style.display = 'none';
 		ws.send({
@@ -76,7 +77,7 @@ function start(){
 			token:make_token()
 		});
 	}else{
-		alert('Username must be 4-16 characters')
+		alert('Username must be longer 4 characters and can\'t end with space')
 	}
 }
 
