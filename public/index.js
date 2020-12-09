@@ -56,8 +56,8 @@ stats.showPanel(3);
 document.body.appendChild(stats.domElement);
 
 var canvas = {
-	game:new Canvas(ele.game),
-	minimap:new Canvas(ele.minimap)
+	game:new GameCanvas(ele.game),
+	minimap:new MinimapCanvas(ele.minimap)
 };
 
 //Listen for events that start the game
@@ -91,6 +91,10 @@ function make_token(){
 	return result;
 };
 
+var camera = {x:0,y:0};
+var snakes = [];
+var foods = [];
+
 //Main game loop
 function loop(){
 	stats.begin();
@@ -98,6 +102,8 @@ function loop(){
 	canvas.minimap.clear();
 	if(running){
 		//TODO: game loop
+		canvas.game.draw();
+		canvas.snakes.draw();
 	}
 	stats.end();
 	requestAnimationFrame(loop);
