@@ -6,8 +6,8 @@ class GameCanvas {
 	}
 
 	clear(){
-		ele.width  = window.innerWidth;
-		ele.height = window.innerHeight;
+		this.ele.width  = window.innerWidth;
+		this.ele.height = window.innerHeight;
 		this.ctx.clearRect(0,0,ele.width,ele.height);
 	}
 
