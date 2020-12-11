@@ -1,9 +1,7 @@
 class GameCanvas {
 	constructor(ele){
 		this.ele = ele;
-		this.ctx = ele.getContext("2d")
-		this.ctx.lineCap = "round";
-		this.ctx.lineJoin = "round";
+		this.ctx = ele.getContext("2d");
 	}
 
 	draw(){
@@ -16,10 +14,12 @@ class GameCanvas {
 		this.ctx.lineWidth = grid_stroke;
 		this.draw_grid();
 
+		this.ctx.lineWidth = food_size;
+		foods.map(e=>{this.draw_food(e)});
 		this.ctx.lineWidth = snake_size;
-		foods.map(this.draw_food);
-		snakes.map(this.draw_snake);
 		snakes.map(e=>{this.draw_snake(e)});
+	}
+
 	cord={
 		x:x=>((window.innerWidth/2)+((x-camera.x)*grid_size)),
 		y:y=>((window.innerHeight/2)-((y-camera.y)*grid_size))
@@ -51,6 +51,14 @@ class GameCanvas {
 	}
 
 	draw_food(food){
-		//TODO
+		this.ctx.strokeStyle = hsl(food.hue,100,50);
+		var x = this.cord.x(food.x);
+		var y = this.cord.y(food.y);
+		this.ctx.beginPath();
+		this.ctx.lineCap = "round";
+		this.ctx.moveTo(x,y);
+		this.ctx.lineTo(x,y);
+		this.ctx.stroke();
+		console.log(x,y)
 	}
 }
