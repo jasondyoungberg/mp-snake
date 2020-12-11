@@ -2,7 +2,8 @@ class GameCanvas {
 	constructor(ele){
 		this.ele = ele;
 		this.ctx = ele.getContext("2d")
-		this.ctx.lineCap = "round"
+		this.ctx.lineCap = "round";
+		this.ctx.lineJoin = "round";
 	}
 
 	draw(){
