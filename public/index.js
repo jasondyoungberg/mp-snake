@@ -111,6 +111,12 @@ function loop(){
 		//TODO: game loop
 		canvas.game.draw();
 		canvas.minimap.draw();
+
+		//Temporary
+		if(keys.ArrowUp){camera.y+=0.1}
+		if(keys.ArrowDown){camera.y-=0.1}
+		if(keys.ArrowLeft){camera.x-=0.1}
+		if(keys.ArrowRight){camera.x+=0.1}
 	}
 	stats.end();
 	requestAnimationFrame(loop);
@@ -126,6 +132,10 @@ function hsl(h,s,l){
 	};
 	return `#${f(0)}${f(8)}${f(4)}`;
 }
+
+var keys = {};//Keep track of which keys are pressed
+document.addEventListener('keydown',e=>{keys[e.key]=true})
+document.addEventListener('keyup',e=>{keys[e.key]=false})
 
 //Temporary
 setTimeout(start,100);
