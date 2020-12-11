@@ -27,8 +27,8 @@ class GameCanvas {
 
 	draw_grid(){
 		this.ctx.strokeStyle = "#cccccc";
-		var target=camera.y+Math.floor(this.h/grid_size)+0.5;
-		for(var i=camera.x-Math.floor(this.w/grid_size)-0.5;i<=target;i++){
+		var target=camera.y+Math.floor(this.h/grid_size)+3.5;
+		for(var i=camera.x-Math.floor(this.w/grid_size)-3.5;i<=target;i++){
 			var cord = this.cord.x(i);
 			this.ctx.beginPath();
 			this.ctx.moveTo(cord,0);
@@ -36,8 +36,8 @@ class GameCanvas {
 			this.ctx.stroke();
 		}
 
-		var target=camera.y+Math.floor(this.h/grid_size)+0.5;
-		for(var i=camera.y-Math.floor(this.h/grid_size)-0.5;i<=target;i++){
+		var target=camera.y+Math.floor(this.h/grid_size)+3.5;
+		for(var i=camera.y-Math.floor(this.h/grid_size)-3.5;i<=target;i++){
 			var cord = this.cord.y(i);
 			this.ctx.beginPath();
 			this.ctx.moveTo(0,cord);
