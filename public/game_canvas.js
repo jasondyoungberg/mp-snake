@@ -27,22 +27,26 @@ class GameCanvas {
 
 	draw_grid(){
 		this.ctx.strokeStyle = "#cccccc";
-		var target=camera.y+Math.floor(this.h/grid_size)+3.5;
-		for(var i=camera.x-Math.floor(this.w/grid_size)-3.5;i<=target;i++){
-			var cord = this.cord.x(i);
-			this.ctx.beginPath();
-			this.ctx.moveTo(cord,0);
-			this.ctx.lineTo(cord,this.h);
-			this.ctx.stroke();
+		var target=Math.floor(this.w/grid_size)+3.5;
+		for(var i=-Math.floor(this.w/grid_size)-3.5;i<=target;i++){
+			if(Math.abs(i)<=map_size){
+				var cord = this.cord.x(i);
+				this.ctx.beginPath();
+				this.ctx.moveTo(cord,0);
+				this.ctx.lineTo(cord,this.h);
+				this.ctx.stroke();
+			}
 		}
 
-		var target=camera.y+Math.floor(this.h/grid_size)+3.5;
-		for(var i=camera.y-Math.floor(this.h/grid_size)-3.5;i<=target;i++){
-			var cord = this.cord.y(i);
-			this.ctx.beginPath();
-			this.ctx.moveTo(0,cord);
-			this.ctx.lineTo(this.w,cord);
-			this.ctx.stroke();
+		var target=Math.floor(this.h/grid_size)+3.5;
+		for(var i=-Math.floor(this.h/grid_size)-3.5;i<=target;i++){
+			if(Math.abs(i)<=map_size){
+				var cord = this.cord.y(i);
+				this.ctx.beginPath();
+				this.ctx.moveTo(0,cord);
+				this.ctx.lineTo(this.w,cord);
+				this.ctx.stroke();
+			}
 		}
 	}
 
