@@ -1,6 +1,6 @@
-const grid_size = 50;
-const grid_stroke = 50;
-const snake_size = 8;
+const grid_size = 40;
+const grid_stroke = 2;
+const snake_size = 30;
 
 var ele = {//All elements shorthand
 	menu:document.getElementsByClassName('menu')[0],
