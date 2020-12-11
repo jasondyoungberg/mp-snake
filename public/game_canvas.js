@@ -2,7 +2,7 @@ class GameCanvas {
 	constructor(ele){
 		this.ele = ele;
 		this.ctx = ele.getContext("2d")
-		this.ctx.lineWidth = grid_size
+		this.ctx.lineWidth = 0.75*grid_size
 	}
 
 	clear(){
