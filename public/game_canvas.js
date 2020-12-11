@@ -48,6 +48,12 @@ class GameCanvas {
 				this.ctx.stroke();
 			}
 		}
+
+		this.ctx.fillStyle = '#cccccc'
+		this.ctx.fillRect(0,0,this.w,this.cord.y(map_size-0.5));
+		this.ctx.fillRect(0,this.cord.y(0.5-map_size),this.w,this.h);
+		this.ctx.fillRect(0,0,this.cord.x(0.5-map_size),this.h);
+		this.ctx.fillRect(this.cord.x(map_size-0.5),0,this.w,this.h);
 	}
 
 	draw_snake(snake){
