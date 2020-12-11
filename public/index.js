@@ -131,8 +131,8 @@ function hsl(h,s,l){
 setTimeout(start,100);
 for(var i=0;i<100;i++){
 	foods.push(new Food(
-		Math.floor(Math.random()*21)-10,
-		Math.floor(Math.random()*21)-10,
+		Math.floor(Math.random()*19)-9,
+		Math.floor(Math.random()*19)-9,
 		Math.floor(Math.random()*360)
 	));
 }
