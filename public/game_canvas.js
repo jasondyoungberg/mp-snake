@@ -17,6 +17,11 @@ class GameCanvas {
 		snakes.map(this.draw_snake);
 	}
 
+	cord={
+		x:x=>((window.innerWidth/2)+((x-camera.x)*grid_size)),
+		y:y=>((window.innerHeight/2)-((y-camera.y)*grid_size))
+	}
+
 	draw_grid(){
 		//TODO
 	}
