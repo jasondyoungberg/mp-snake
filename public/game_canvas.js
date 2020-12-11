@@ -30,6 +30,7 @@ class GameCanvas {
 		var target=camera.y+(this.h/grid_size);
 		for(var i=camera.x-(this.w/grid_size);i<=camera.x+(this.w/grid_size);i++){
 			var cord = this.cord.x(i);
+			this.ctx.beginPath();
 			this.ctx.moveTo(cord,0);
 			this.ctx.lineTo(cord,this.h);
 			this.ctx.stroke();
@@ -38,6 +39,7 @@ class GameCanvas {
 		var target=camera.y+(this.h/grid_size);
 		for(var i=camera.y-(this.h/grid_size);i<=target;i++){
 			var cord = this.cord.y(i);
+			this.ctx.beginPath();
 			this.ctx.moveTo(0,cord);
 			this.ctx.lineTo(this.w,cord);
 			this.ctx.stroke();
