@@ -113,10 +113,10 @@ function loop(){
 		canvas.minimap.draw();
 
 		//Temporary
-		if(keys.ArrowUp){camera.y+=0.1}
-		if(keys.ArrowDown){camera.y-=0.1}
-		if(keys.ArrowLeft){camera.x-=0.1}
-		if(keys.ArrowRight){camera.x+=0.1}
+		if(key.up){camera.y+=0.1}
+		if(key.down){camera.y-=0.1}
+		if(key.left){camera.x-=0.1}
+		if(key.right){camera.x+=0.1}
 	}
 	stats.end();
 	requestAnimationFrame(loop);
@@ -133,12 +133,36 @@ function hsl(h,s,l){
 	return `#${f(0)}${f(8)}${f(4)}`;
 }
 
-var keys = {};//Keep track of which keys are pressed
-document.addEventListener('keydown',e=>{keys[e.key]=true})
-document.addEventListener('keyup',e=>{keys[e.key]=false})
+//Keep track of which keys are pressed
+var key = {
+	up:false,
+	down:false,
+	left:false,
+	right:false
+};
+document.addEventListener('keydown',e=>{
+	if(e.key == 'ArrowUp')key.up=true;
+	if(e.key == 'ArrowDown')key.down=true;
+	if(e.key == 'ArrowLeft')key.left=true;
+	if(e.key == 'ArrowRight')key.right=true;
+	if(e.key == 'w')key.up=true;
+	if(e.key == 's')key.down=true;
+	if(e.key == 'a')key.left=true;
+	if(e.key == 'd')key.right=true;
+})
+document.addEventListener('keyup',e=>{
+	if(e.key == 'ArrowUp')key.up=false;
+	if(e.key == 'ArrowDown')key.down=false;
+	if(e.key == 'ArrowLeft')key.left=false;
+	if(e.key == 'ArrowRight')key.right=false;
+	if(e.key == 'w')key.up=false;
+	if(e.key == 's')key.down=false;
+	if(e.key == 'a')key.left=false;
+	if(e.key == 'd')key.right=false;
+})
 
 //Temporary
-setTimeout(start,100);
+//setTimeout(start,100);
 for(var i=0;i<100;i++){
 	foods.push(new Food(
 		Math.floor(Math.random()*19)-9,
