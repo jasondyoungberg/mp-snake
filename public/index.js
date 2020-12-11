@@ -73,14 +73,18 @@ document.addEventListener('keypress',e=>{if(e.key=='Enter')start();});
 //Startup the game
 function start(){
 	if(/^([^\W_]| ){3,15}[^\W_]$/.test(ele.name_textbox.value)){
-		running = true;
-		ele.menu_wrapper.style.display = 'none';
-		ws.send({
-			type:'join',
-			username:username,
-			hue:hue,
-			token:make_token()
-		});
+		if(ws.socket.readyState == 1){
+			running = true;
+			ele.menu_wrapper.style.display = 'none';
+			ws.send({
+				type:'join',
+				username:username,
+				hue:hue,
+				token:make_token()
+			});
+		}else{
+			alert('Connecting to server, please try again in a few seconds')
+		}
 	}else{
 		alert('Username must be longer 4 characters and can\'t end with space')
 	}
@@ -98,9 +102,7 @@ function make_token(){
 
 var camera = {x:0,y:0};
 var snakes = [];
-var foods = [
-	new Food(0,0,Math.floor(Math.random()*360))
-];
+var foods = [];
 
 //Main game loop
 function loop(){
@@ -125,4 +127,12 @@ function hsl(h,s,l){
 	return `#${f(0)}${f(8)}${f(4)}`;
 }
 
-start();
+//Temporary
+setTimeout(start,100);
+for(var i=0;i<100;i++){
+	foods.push(new Food(
+		Math.floor(Math.random()*21)-10,
+		Math.floor(Math.random()*21)-10,
+		Math.floor(Math.random()*360)
+	));
+}
