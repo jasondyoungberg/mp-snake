@@ -19,8 +19,7 @@ class GameCanvas {
 		this.ctx.lineWidth = snake_size;
 		foods.map(this.draw_food);
 		snakes.map(this.draw_snake);
-	}
-
+		snakes.map(e=>{this.draw_snake(e)});
 	cord={
 		x:x=>((window.innerWidth/2)+((x-camera.x)*grid_size)),
 		y:y=>((window.innerHeight/2)-((y-camera.y)*grid_size))

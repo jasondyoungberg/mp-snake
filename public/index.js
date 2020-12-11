@@ -1,6 +1,7 @@
 const grid_size = 40;
 const grid_stroke = 2;
 const snake_size = 30;
+const food_size = 20;
 
 var ele = {//All elements shorthand
 	menu:document.getElementsByClassName('menu')[0],
