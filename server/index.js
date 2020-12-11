@@ -10,10 +10,9 @@ const app = express();
 app.use((req,res,next)=>{//log request
 	log(`${req.url}`,'http');
 	if(req.url=='/info.js'){
-		res.send(`const info = {\n\
+		res.send(`const map = {\n\
 	width:${config.map.width},\n\
 	height:${config.map.height},\n\
-	loop:${config.map.loop}\n\
 };`);
 	}else{next();}
 },express.static('public'));
