@@ -1,4 +1,4 @@
-const grid_size = 10;
+const grid_size = 20;
 const snake_size = 8;
 
 var ele = {//All elements shorthand
@@ -104,7 +104,7 @@ function loop(){
 	if(running){
 		//TODO: game loop
 		canvas.game.draw();
-		canvas.snakes.draw();
+		canvas.minimap.draw();
 	}
 	stats.end();
 	requestAnimationFrame(loop);
