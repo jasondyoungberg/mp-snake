@@ -59,6 +59,5 @@ class GameCanvas {
 		this.ctx.moveTo(x,y);
 		this.ctx.lineTo(x,y);
 		this.ctx.stroke();
-		console.log(x,y)
 	}
 }
