@@ -16,8 +16,5 @@
 			"path":"log.txt"
 		}
 	},
-	"map":{
-		"width":10,
-		"height":10
-	}
+	"map_size":10
 }

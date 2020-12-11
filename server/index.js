@@ -10,10 +10,7 @@ const app = express();
 app.use((req,res,next)=>{//log request
 	log(`${req.url}`,'http');
 	if(req.url=='/info.js'){
-		res.send(`const map = {\n\
-	width:${config.map.width},\n\
-	height:${config.map.height},\n\
-};`);
+		res.send(`const map_size = ${config.map_size};`);
 	}else{next();}
 },express.static('public'));
 
