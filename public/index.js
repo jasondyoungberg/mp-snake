@@ -98,7 +98,9 @@ function make_token(){
 
 var camera = {x:0,y:0};
 var snakes = [];
-var foods = [];
+var foods = [
+	new Food(0,0,Math.floor(Math.random()*360))
+];
 
 //Main game loop
 function loop(){
@@ -122,3 +124,5 @@ function hsl(h,s,l){
 	};
 	return `#${f(0)}${f(8)}${f(4)}`;
 }
+
+start();
