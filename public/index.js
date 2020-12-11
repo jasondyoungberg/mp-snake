@@ -162,7 +162,7 @@ document.addEventListener('keyup',e=>{
 })
 
 //Temporary
-//setTimeout(start,100);
+setTimeout(start,100);
 for(var i=0;i<100;i++){
 	foods.push(new Food(
 		Math.floor(Math.random()*19)-9,
