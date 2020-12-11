@@ -101,8 +101,6 @@ var foods = [];
 //Main game loop
 function loop(){
 	stats.begin();
-	canvas.game.clear();
-	canvas.minimap.clear();
 	if(running){
 		//TODO: game loop
 		canvas.game.draw();
