@@ -1,4 +1,5 @@
-const grid_size = 20;
+const grid_size = 50;
+const grid_stroke = 50;
 const snake_size = 8;
 
 var ele = {//All elements shorthand

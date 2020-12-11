@@ -13,7 +13,7 @@ class GameCanvas {
 		this.ele.height = this.h;
 		this.ctx.clearRect(0,0,ele.width,ele.height);
 
-		this.ctx.lineWidth = 0.1*grid_size;
+		this.ctx.lineWidth = grid_stroke;
 		this.draw_grid();
 
 		this.ctx.lineWidth = snake_size;
