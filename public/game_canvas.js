@@ -57,7 +57,23 @@ class GameCanvas {
 	}
 
 	draw_snake(snake){
-		//TODO
+		this.ctx.beginPath();
+		this.ctx.strokeStyle = hsl(snake.hue,100,50);
+		this.ctx.lineCap = "round";
+		this.ctx.lineJoin = "round";
+		var body = snake.bodyT(t);
+		//console.log(t,body);
+		this.ctx.moveTo(
+			this.cord.x(body[0].x),
+			this.cord.y(body[0].y)
+		);
+		body.map(e=>{
+			this.ctx.lineTo(
+				this.cord.x(e.x),
+				this.cord.y(e.y)
+			);
+		});
+		this.ctx.stroke();
 	}
 
 	draw_food(food){
