@@ -133,32 +133,18 @@ function hsl(h,s,l){
 	return `#${f(0)}${f(8)}${f(4)}`;
 }
 
-//Keep track of which keys are pressed
-var key = {
-	up:false,
-	down:false,
-	left:false,
-	right:false
-};
+//Change snake direction
 document.addEventListener('keydown',e=>{
-	if(e.key == 'ArrowUp')key.up=true;
-	if(e.key == 'ArrowDown')key.down=true;
-	if(e.key == 'ArrowLeft')key.left=true;
-	if(e.key == 'ArrowRight')key.right=true;
-	if(e.key == 'w')key.up=true;
-	if(e.key == 's')key.down=true;
-	if(e.key == 'a')key.left=true;
-	if(e.key == 'd')key.right=true;
-})
-document.addEventListener('keyup',e=>{
-	if(e.key == 'ArrowUp')key.up=false;
-	if(e.key == 'ArrowDown')key.down=false;
-	if(e.key == 'ArrowLeft')key.left=false;
-	if(e.key == 'ArrowRight')key.right=false;
-	if(e.key == 'w')key.up=false;
-	if(e.key == 's')key.down=false;
-	if(e.key == 'a')key.left=false;
-	if(e.key == 'd')key.right=false;
+	var p = snakes[0];
+	if(e.key == 'ArrowUp')p.dirQ=0;
+	if(e.key == 'ArrowRight')p.dirQ=1;
+	if(e.key == 'ArrowDown')p.dirQ=2;
+	if(e.key == 'ArrowLeft')p.dirQ=3;
+	if(e.key == 'w')p.dirQ=0;
+	if(e.key == 'd')p.dirQ=1;
+	if(e.key == 's')p.dirQ=2;
+	if(e.key == 'a')p.dirQ=3;
+	if((p.dirQ+2)%4==p.dir)p.dirQ=p.dir;
 })
 
 //Temporary
