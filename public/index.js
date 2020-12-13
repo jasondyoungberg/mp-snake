@@ -136,15 +136,16 @@ function hsl(h,s,l){
 //Change snake direction
 document.addEventListener('keydown',e=>{
 	var p = snakes[0];
-	if(e.key == 'ArrowUp')p.dirQ=0;
-	if(e.key == 'ArrowRight')p.dirQ=1;
-	if(e.key == 'ArrowDown')p.dirQ=2;
-	if(e.key == 'ArrowLeft')p.dirQ=3;
-	if(e.key == 'w')p.dirQ=0;
-	if(e.key == 'd')p.dirQ=1;
-	if(e.key == 's')p.dirQ=2;
-	if(e.key == 'a')p.dirQ=3;
-	if((p.dirQ+2)%4==p.dir)p.dirQ=p.dir;
+	if(e.key == 'ArrowUp')p.dirNext=0;
+	if(e.key == 'ArrowRight')p.dirNext=1;
+	if(e.key == 'ArrowDown')p.dirNext=2;
+	if(e.key == 'ArrowLeft')p.dirNext=3;
+	if(e.key == 'w')p.dirNext=0;
+	if(e.key == 'd')p.dirNext=1;
+	if(e.key == 's')p.dirNext=2;
+	if(e.key == 'a')p.dirNext=3;
+	if((p.dirNext+2)%4==p.dirPrev){p.dirNext=p.dir;}
+	if(t%1<0.5){p.dir = p.dirNext;}
 })
 
 //Temporary

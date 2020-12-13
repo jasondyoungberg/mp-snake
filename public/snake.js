@@ -1,3 +1,5 @@
+const dirX = [0,1,0,-1];
+const dirY = [1,0,-1,0];
 class Snake{
 	constructor(username,hue,body,dir){
 		this.username = username;
@@ -5,22 +7,20 @@ class Snake{
 		this.body = body;
 		this.x = body[0].x;
 		this.y = body[0].y;
+
+		this.dirPrev = dir;
 		this.dir = dir;
-		this.dirQ = dir;
-		this.dirX = 0;
-		this.dirY = 0;
+		this.dirNext = dir;
+
 		this.tick = 0;
-		if(dir==0)this.dirY = 1;
-		if(dir==1)this.dirX = 1;
-		if(dir==2)this.dirY = -1;
-		if(dir==3)this.dirX = -1;
 	}
 
 	bodyT(t=0){
+		this.tickTo(t);
 		var tick = t%1;
 		var result = [{
-			x:this.x+(tick*this.dirX),
-			y:this.y+(tick*this.dirY)
+			x:this.x+(tick*dirX[this.dir]),
+			y:this.y+(tick*dirY[this.dir])
 		}];
 		for(var i=0;i<this.body.length-1;i++){
 			result.push({
@@ -43,22 +43,16 @@ class Snake{
 	tickTo(t){
 		var tick = Math.floor(t);
 		while(tick>this.tick){
-			this.x+=this.dirX;
-			this.y+=this.dirY;
+			this.x+=dirX[this.dir];
+			this.y+=dirY[this.dir];
 			this.body.splice(0,0,{
 				x:this.x,
 				y:this.y
 			});
 			this.body.pop();
 
-			this.dir = this.dirQ;
-			this.dirX = 0
-			this.dirY = 0
-			if(this.dir==0)this.dirY = 1;
-			if(this.dir==1)this.dirX = 1;
-			if(this.dir==2)this.dirY = -1;
-			if(this.dir==3)this.dirX = -1;
-
+			this.dir = this.dirNext;
+			this.dirPrev = this.dir;
 			this.tick++;
 		}
 	}
