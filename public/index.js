@@ -135,6 +135,7 @@ function hsl(h,s,l){
 
 //Change snake direction
 document.addEventListener('keydown',e=>{
+	if(running){
 	var p = snakes[0];
 	if(e.key == 'ArrowUp')p.dirNext=0;
 	if(e.key == 'ArrowRight')p.dirNext=1;
