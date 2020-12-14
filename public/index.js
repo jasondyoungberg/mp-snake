@@ -1,7 +1,7 @@
 const grid_size = 40;
 const grid_stroke = 2;
 const snake_size = 30;
-const food_size = 20;
+const food_size = 10;
 
 var ele = {//All elements shorthand
 	menu:document.getElementsByClassName('menu')[0],
@@ -105,6 +105,8 @@ function start(){
 
 function gameover(){
 	running = false;
+	t = 0;
+	snakes = [];
 	ele.menu_wrapper.style.display = 'flex';
 }
 

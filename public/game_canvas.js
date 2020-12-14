@@ -14,9 +14,8 @@ class GameCanvas {
 		this.ctx.lineWidth = grid_stroke;
 		this.draw_grid();
 
-		this.ctx.lineWidth = food_size;
-		foods.map(e=>{this.draw_food(e)});
 		this.ctx.lineWidth = snake_size;
+		foods.map(e=>{this.draw_food(e)});
 		snakes.map(e=>{this.draw_snake(e)});
 	}
 
@@ -88,13 +87,12 @@ class GameCanvas {
 	}
 
 	draw_food(food){
-		this.ctx.strokeStyle = hsl(food.hue,100,50);
+		this.ctx.fillStyle = hsl(food.hue(t),100,50);
 		var x = this.cord.x(food.x);
 		var y = this.cord.y(food.y);
 		this.ctx.beginPath();
-		this.ctx.lineCap = "round";
-		this.ctx.moveTo(x,y);
+		this.ctx.arc(x,y,food_size,0,2*Math.PI);
 		this.ctx.lineTo(x,y);
-		this.ctx.stroke();
+		this.ctx.fill();
 	}
 }
