@@ -1,13 +1,16 @@
 const dirX = [0,1,0,-1];
 const dirY = [1,0,-1,0];
+const dirXY = [[,3,,],[2,,0],[,1,,]];
 class Snake{
-	constructor(username,hue,body,dir){
+	constructor(username,hue,body){
 		this.username = username;
 		this.hue = hue;
 		this.body = body;
 		this.x = body[0].x;
 		this.y = body[0].y;
 
+		var dir = dirXY[body[0].x-body[1].x+1][body[0].y-body[1].y+1]
+		this.dirPrev2 = dir;
 		this.dirPrev = dir;
 		this.dir = dir;
 		this.dirNext = dir;
@@ -51,6 +54,7 @@ class Snake{
 			});
 			this.body.pop();
 
+			this.dirPrev2 = this.dir;
 			this.dir = this.dirNext;
 			this.dirPrev = this.dir;
 			this.tick++;
