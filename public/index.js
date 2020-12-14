@@ -175,8 +175,7 @@ document.addEventListener('keydown',e=>{
 })
 
 //Temporary
-setTimeout(start,100);
-for(var i=0;i<100;i++){
+for(var i=0;i<10;i++){
 	foods.push(new Food(
 		Math.floor(Math.random()*19)-9,
 		Math.floor(Math.random()*19)-9,

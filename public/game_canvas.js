@@ -62,7 +62,6 @@ class GameCanvas {
 		this.ctx.lineCap = "round";
 		this.ctx.lineJoin = "round";
 		var body = snake.bodyT(t);
-		//console.log(t,body);
 		this.ctx.moveTo(
 			this.cord.x(body[0].x),
 			this.cord.y(body[0].y)
