@@ -52,12 +52,22 @@ class Snake{
 				x:this.x,
 				y:this.y
 			});
-			this.body.pop();
+			if(!this.eatFood())this.body.pop();
 
 			this.dirPrev2 = this.dir;
 			this.dir = this.dirNext;
 			this.dirPrev = this.dir;
 			this.tick++;
 		}
+	}
+
+	eatFood(){
+		for(var i=0;i<foods.length;i++){
+			if(foods[i].x==this.x && foods[i].y==this.y){
+				foods.splice(i,1)
+				return true;
+			}
+		}
+		return false;
 	}
 }
