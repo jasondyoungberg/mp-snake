@@ -111,12 +111,6 @@ function loop(){
 		//TODO: game loop
 		canvas.game.draw();
 		canvas.minimap.draw();
-
-		//Temporary
-		if(key.up){camera.y+=0.1}
-		if(key.down){camera.y-=0.1}
-		if(key.left){camera.x-=0.1}
-		if(key.right){camera.x+=0.1}
 	}
 	stats.end();
 	requestAnimationFrame(loop);
