@@ -103,6 +103,11 @@ function start(){
 	}
 }
 
+function gameover(){
+	running = false;
+	ele.menu_wrapper.style.display = 'flex';
+}
+
 //Generate token
 function make_token(){
 	var result = '';

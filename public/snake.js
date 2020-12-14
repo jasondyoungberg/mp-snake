@@ -30,7 +30,7 @@ class Snake{
 					y:this.body[i].y
 				})
 			}
-			if(result.length == 1)return result;
+			if(result.length <= 1)return result;
 			var end2 = result[result.length-2]
 			var end = result.pop()
 			var difX = end2.x-end.x
@@ -68,6 +68,7 @@ class Snake{
 		while(tick>this.tick){
 			if(this.dead){
 				this.body.pop();
+				if(this.body.length == 0)gameover();
 			}else{
 				this.x+=dirX[this.dir];
 				this.y+=dirY[this.dir];
