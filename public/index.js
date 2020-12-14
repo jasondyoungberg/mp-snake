@@ -182,10 +182,10 @@ document.addEventListener('keydown',e=>{
 })
 
 //Temporary
-for(var i=0;i<10;i++){
+for(var i=0;i<map_size*map_size;i+=10){
 	foods.push(new Food(
-		Math.floor(Math.random()*19)-9,
-		Math.floor(Math.random()*19)-9,
+		1+Math.floor(Math.random()*(2*map_size-1))-map_size,
+		1+Math.floor(Math.random()*(2*map_size-1))-map_size,
 		Math.floor(Math.random()*360)
 	));
 }

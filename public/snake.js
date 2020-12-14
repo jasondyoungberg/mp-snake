@@ -119,8 +119,8 @@ class Snake{
 
 				//TEMP//
 				foods.push(new Food(
-					Math.floor(Math.random()*19)-9,
-					Math.floor(Math.random()*19)-9,
+					1+Math.floor(Math.random()*(2*map_size-1))-map_size,
+					1+Math.floor(Math.random()*(2*map_size-1))-map_size,
 					Math.floor(Math.random()*360)
 				));
 
