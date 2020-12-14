@@ -82,6 +82,19 @@ function start(){
 				hue:hue,
 				token:make_token()
 			});
+
+			//Temporary
+			snakes.push(new Snake(
+				username,
+				hue,
+				[
+					{x:0,y:0},
+					{x:0,y:-1},
+					{x:0,y:-2},
+					{x:0,y:-3}
+				],
+				0
+			));
 		}else{
 			alert('Connecting to server, please try again in a few seconds')
 		}
