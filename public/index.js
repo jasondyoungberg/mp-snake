@@ -152,8 +152,15 @@ document.addEventListener('keydown',e=>{
 		if(e.key == 'd')p.dirNext=1;
 		if(e.key == 's')p.dirNext=2;
 		if(e.key == 'a')p.dirNext=3;
-		if((p.dirNext+2)%4==p.dirPrev){p.dirNext=p.dir;}
-		if(t%1<0.5){p.dir = p.dirNext;}
+		if(t%1<0.5){
+			if((p.dirNext+2)%4 == p.dirPrev2){
+				p.dirNext = p.dir;
+			}else{
+				p.dir = p.dirNext;
+			}
+		}else if((p.dirNext+2)%4 == p.dirPrev){
+			p.dirNext = p.dir;
+		}
 	}
 })
 
