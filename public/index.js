@@ -116,6 +116,7 @@ function make_token(){
 var camera = {x:0,y:0};
 var snakes = [];
 var foods = [];
+var t = 0;
 
 //Main game loop
 function loop(){
