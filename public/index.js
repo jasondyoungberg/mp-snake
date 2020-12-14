@@ -122,7 +122,14 @@ var t = 0;
 function loop(){
 	stats.begin();
 	if(running){
-		//TODO: game loop
+		t += tick_speed/60;
+
+		//Make camera follow snake
+		camera = snakes[0].bodyT(t)[2]
+		camera.x += dirX[snakes[0].dirPrev2] * (t%1)
+		camera.y += dirY[snakes[0].dirPrev2] * (t%1)
+
+		//Draw everything
 		canvas.game.draw();
 		canvas.minimap.draw();
 	}
