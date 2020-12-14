@@ -77,6 +77,7 @@ class Snake{
 				});
 				if(!this.eatFood())this.body.pop();
 				this.testCollision();
+				this.testWall();
 
 				this.dirPrev2 = this.dir;
 				this.dir = this.dirNext;
@@ -99,6 +100,11 @@ class Snake{
 				}
 			}
 		}
+	}
+
+	testWall(){
+		if(Math.abs(this.x)==map_size)this.dead = true;
+		if(Math.abs(this.y)==map_size)this.dead = true;
 	}
 
 	eatFood(){
