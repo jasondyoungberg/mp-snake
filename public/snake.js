@@ -65,6 +65,10 @@ class Snake{
 		for(var i=0;i<foods.length;i++){
 			if(foods[i].x==this.x && foods[i].y==this.y){
 				foods.splice(i,1)
+				ws.send({
+					type:'food',
+					id:i
+				}); 
 				return true;
 			}
 		}
