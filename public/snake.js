@@ -16,29 +16,49 @@ class Snake{
 		this.dirNext = dir;
 
 		this.tick = 0;
+		this.dead = false;
 	}
 
 	bodyT(t=0){
 		this.tickTo(t);
 		var tick = t%1;
-		var result = [{
-			x:this.x+(tick*dirX[this.dir]),
-			y:this.y+(tick*dirY[this.dir])
-		}];
-		for(var i=0;i<this.body.length-1;i++){
+		if(this.dead){
+			var result = [];
+			for(var i=0;i<this.body.length;i++){
+				result.push({
+					x:this.body[i].x,
+					y:this.body[i].y
+				})
+			}
+
+			var end2 = result[result.length-2]
+			var end = result.pop()
+			var difX = end2.x-end.x
+			var difY = end2.y-end.y
 			result.push({
-				x:this.body[i].x,
-				y:this.body[i].y
-			})
+				x:end.x+(tick*difX),
+				y:end.y+(tick*difY)
+			});
+		}else{
+			var result = [{
+				x:this.x+(tick*dirX[this.dir]),
+				y:this.y+(tick*dirY[this.dir])
+			}];
+			for(var i=0;i<this.body.length;i++){
+				result.push({
+					x:this.body[i].x,
+					y:this.body[i].y
+				})
+			}
+			var end2 = result[result.length-2]
+			var end = result.pop()
+			var difX = end2.x-end.x
+			var difY = end2.y-end.y
+			result.push({
+				x:end.x+(tick*difX),
+				y:end.y+(tick*difY)
+			});
 		}
-		var end2 = result[result.length-2]
-		var end = result.pop()
-		var difX = end2.x-end.x
-		var difY = end2.y-end.y
-		result.push({
-			x:end.x+(tick*difX),
-			y:end.y+(tick*difY)
-		});
 
 		return result;
 	}
@@ -46,18 +66,36 @@ class Snake{
 	tickTo(t){
 		var tick = Math.floor(t);
 		while(tick>this.tick){
-			this.x+=dirX[this.dir];
-			this.y+=dirY[this.dir];
-			this.body.splice(0,0,{
-				x:this.x,
-				y:this.y
-			});
-			if(!this.eatFood())this.body.pop();
+			console.log('break')
+			if(this.dead){
+				this.body.pop();
+			}else{
+				this.x+=dirX[this.dir];
+				this.y+=dirY[this.dir];
+				this.body.splice(0,0,{
+					x:this.x,
+					y:this.y
+				});
+				if(!this.eatFood())this.body.pop();
+				this.testCollision();
 
-			this.dirPrev2 = this.dir;
-			this.dir = this.dirNext;
-			this.dirPrev = this.dir;
+				this.dirPrev2 = this.dir;
+				this.dir = this.dirNext;
+				this.dirPrev = this.dir;
+			}
 			this.tick++;
+		}
+	}
+
+	testCollision(){
+		for(var i=0;i<snakes.length;i++){
+			for(var j=0;j<snakes[i].body.length;j++){
+				var c = snakes[i].body[j];
+				if((c.x==this.x && c.y==this.y) && (i>0 || j>0)){
+					this.dead = true;
+					return;
+				}
+			}
 		}
 	}
 
