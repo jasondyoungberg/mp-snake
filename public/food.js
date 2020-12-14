@@ -5,7 +5,9 @@ class Food{
 		this.color = hue;
 	}
 
-	hue(t){
-		return (this.color+(36*t))%360;
+	get hue(){
+		this.color+=1;
+		this.color%=360;
+		return this.color;
 	}
 }

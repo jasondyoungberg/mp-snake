@@ -87,7 +87,9 @@ class GameCanvas {
 	}
 
 	draw_food(food){
-		this.ctx.fillStyle = hsl(food.hue(t),100,50);
+		if(Math.abs(snakes[0].x - food.x)>5+(2*this.w/grid_size))return;
+		if(Math.abs(snakes[0].y - food.y)>5+(2*this.h/grid_size))return;
+		this.ctx.fillStyle = hsl(food.hue,100,50);
 		var x = this.cord.x(food.x);
 		var y = this.cord.y(food.y);
 		this.ctx.beginPath();
