@@ -66,7 +66,6 @@ class Snake{
 	tickTo(t){
 		var tick = Math.floor(t);
 		while(tick>this.tick){
-			console.log('break')
 			if(this.dead){
 				this.body.pop();
 			}else{
