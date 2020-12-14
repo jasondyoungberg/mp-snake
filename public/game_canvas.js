@@ -58,21 +58,32 @@ class GameCanvas {
 
 	draw_snake(snake){
 		this.ctx.beginPath();
-		this.ctx.strokeStyle = hsl(snake.hue,100,50);
-		this.ctx.lineCap = "round";
-		this.ctx.lineJoin = "round";
 		var body = snake.bodyT(t);
-		this.ctx.moveTo(
-			this.cord.x(body[0].x),
-			this.cord.y(body[0].y)
-		);
-		body.map(e=>{
-			this.ctx.lineTo(
-				this.cord.x(e.x),
-				this.cord.y(e.y)
+		if(body.length == 1){
+			this.ctx.fillStyle = hsl(snake.hue,100,50);
+			this.ctx.arc(
+				this.cord.x(body[0].x),
+				this.cord.y(body[0].y),
+				snake_size * (1-(t%1)) / 2,
+				0,2*Math.PI
 			);
-		});
-		this.ctx.stroke();
+			this.ctx.fill();
+		}else{
+			this.ctx.strokeStyle = hsl(snake.hue,100,50);
+			this.ctx.lineCap = "round";
+			this.ctx.lineJoin = "round";
+			this.ctx.moveTo(
+				this.cord.x(body[0].x),
+				this.cord.y(body[0].y)
+			);
+			body.map(e=>{
+				this.ctx.lineTo(
+					this.cord.x(e.x),
+					this.cord.y(e.y)
+				);
+			});
+			this.ctx.stroke();
+		}
 	}
 
 	draw_food(food){

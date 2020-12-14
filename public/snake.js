@@ -30,7 +30,7 @@ class Snake{
 					y:this.body[i].y
 				})
 			}
-
+			if(result.length == 1)return result;
 			var end2 = result[result.length-2]
 			var end = result.pop()
 			var difX = end2.x-end.x
