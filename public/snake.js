@@ -84,6 +84,9 @@ class Snake{
 				this.dirPrev = this.dir;
 			}
 			this.tick++;
+			if(tick==this.tick){
+				ws.send({type:'body',body:this.body})
+			}
 		}
 	}
 
