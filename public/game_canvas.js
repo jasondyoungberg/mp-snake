@@ -26,10 +26,10 @@ class GameCanvas {
 
 	draw_grid(){
 		this.ctx.strokeStyle = "#cccccc";
-		var target=Math.floor(this.w/grid_size)+3.5;
-		for(var i=-Math.floor(this.w/grid_size)-3.5;i<=target;i++){
+		var target=Math.floor(this.w/grid_size/2)+3.5;
+		for(var i=-Math.floor(this.w/grid_size/2)-3.5;i<=target;i++){
 			if(Math.abs(i)<=map_size){
-				var cord = this.cord.x(i);
+				var cord = this.cord.x(i+snakes[0].x);
 				this.ctx.beginPath();
 				this.ctx.moveTo(cord,0);
 				this.ctx.lineTo(cord,this.h);
@@ -37,10 +37,10 @@ class GameCanvas {
 			}
 		}
 
-		var target=Math.floor(this.h/grid_size)+3.5;
-		for(var i=-Math.floor(this.h/grid_size)-3.5;i<=target;i++){
+		var target=Math.floor(this.h/grid_size/2)+3.5;
+		for(var i=-Math.floor(this.h/grid_size/2)-3.5;i<=target;i++){
 			if(Math.abs(i)<=map_size){
-				var cord = this.cord.y(i);
+				var cord = this.cord.y(i+snakes[0].y);
 				this.ctx.beginPath();
 				this.ctx.moveTo(0,cord);
 				this.ctx.lineTo(this.w,cord);

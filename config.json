@@ -17,5 +17,5 @@
 		}
 	},
 	"map_size":100,
-	"tick_speed":2
+	"tick_speed":5
 }
