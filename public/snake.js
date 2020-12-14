@@ -114,7 +114,15 @@ class Snake{
 				ws.send({
 					type:'food',
 					id:i
-				}); 
+				});
+
+				//TEMP//
+				foods.push(new Food(
+					Math.floor(Math.random()*19)-9,
+					Math.floor(Math.random()*19)-9,
+					Math.floor(Math.random()*360)
+				));
+
 				return true;
 			}
 		}
