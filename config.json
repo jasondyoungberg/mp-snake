@@ -16,6 +16,6 @@
 			"path":"log.txt"
 		}
 	},
-	"map_size":100,
-	"tick_speed":5
+	"map_size":25,
+	"tick_speed":2
 }
