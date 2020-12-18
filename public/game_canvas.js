@@ -57,7 +57,7 @@ class GameCanvas {
 
 	draw_snake(snake){
 		this.ctx.beginPath();
-		var body = snake.bodyT(t,falsee);
+		var body = snake.bodyT(t,false);
 		if(body.length == 0)return;
 		if(body.length == 1){
 			this.ctx.fillStyle = hsl(snake.hue,100,50);
