@@ -16,7 +16,7 @@ class GameCanvas {
 
 		this.ctx.lineWidth = snake_size;
 		foods.map(e=>{this.draw_food(e)});
-		snakes.map(e=>{this.draw_snake(e)});
+		snakes.map(e=>{this.draw_snake(e,false)});
 	}
 
 	cord={
@@ -57,7 +57,7 @@ class GameCanvas {
 
 	draw_snake(snake){
 		this.ctx.beginPath();
-		var body = snake.bodyT(t);
+		var body = snake.bodyT(t,falsee);
 		if(body.length == 0)return;
 		if(body.length == 1){
 			this.ctx.fillStyle = hsl(snake.hue,100,50);

@@ -19,8 +19,8 @@ class Snake{
 		this.dead = false;
 	}
 
-	bodyT(t=0){
-		this.tickTo(t);
+	bodyT(t=0,isClient){
+		this.tickTo(t,isClient);
 		var tick = t%1;
 		if(this.dead){
 			var result = [];
@@ -63,7 +63,7 @@ class Snake{
 		return result;
 	}
 
-	tickTo(t){
+	tickTo(t,isClient){
 		var tick = Math.floor(t);
 		while(tick>this.tick){
 			if(this.dead){
@@ -85,8 +85,8 @@ class Snake{
 				this.dirPrev = this.dir;
 			}
 			this.tick++;
-			if(tick==this.tick){
-				ws.send({type:'body',body:this.body})
+			if(isClient && tick==this.tick){
+				ws.send({type:'state',body:this.body,t:this.tick,dead:this.dead});
 			}
 		}
 	}

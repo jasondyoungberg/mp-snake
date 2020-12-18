@@ -133,7 +133,7 @@ function loop(){
 
 		//Make camera follow snake
 		if(!snakes[0].dead){
-			camera = snakes[0].bodyT(t)[2]
+			camera = snakes[0].bodyT(t,true)[2]
 			camera.x += dirX[snakes[0].dirPrev2] * (t%1)
 			camera.y += dirY[snakes[0].dirPrev2] * (t%1)
 		}
